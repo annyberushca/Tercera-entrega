@@ -20,15 +20,13 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
             <div class="container px-5">
-                <a class="navbar-brand" href="#page-top">HOME</a>
+                <a class="navbar-brand" href="{% url 'home' %}">HOME</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#!">Insumos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Personales</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Clientes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Regístrate</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Soy cliente</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'insumos' %}">Insumos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'personales' %}">Personales</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'clientes' %}">Clientes</a></li>
                     </ul>
                 </div>
             </div>
@@ -38,8 +36,11 @@
         <header class="masthead text-center text-white">
             <div class="masthead-content">
                 <div class="container px-5">
+                    {% block titulo %}
                     <h1 class="masthead-heading mb-0">Control de Precios </h1>
                     <h2 class="masthead-subheading mb-0">Cafe AYC</h2>
+                    {% endblock titulo %}
+                    
                     <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">PRODUCTOS</a>
                 </div>
             </div>
@@ -49,6 +50,7 @@
             <div class="bg-circle-4 bg-circle"></div>
         </header>
         <!-- Content section 1-->
+        {% block contenido %}
         <section id="scroll">
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
@@ -64,6 +66,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Content section 2-->
         <section>
             <div class="container px-5">
@@ -96,6 +99,7 @@
                 </div>
             </div>
         </section>
+        {% endblock contenido %}
         <!-- Footer-->
         <footer class="py-5 bg-black">
             <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; Your Website 2023</p></div>
